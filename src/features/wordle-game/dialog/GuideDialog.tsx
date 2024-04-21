@@ -17,7 +17,7 @@ const GuideDialog = () => {
           if (!isOpen) close();
         }}
       >
-        <DialogContent>
+        <DialogContent className="w-full">
           <DialogHeader>
             <DialogTitle className="text-center">Comment jouer</DialogTitle>
           </DialogHeader>

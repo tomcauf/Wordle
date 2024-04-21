@@ -2,7 +2,8 @@
 import type { WordleRow, WordleStatus } from "../wordle.schema";
 import Cell from "./Cell";
 import { useEffect, useMemo } from "react";
-
+import { Delete } from "lucide-react";
+import { KeyboardEnter } from "@/components/ui/icons";
 type KeyboardProps = {
   rows: WordleRow[];
   gameStatus: WordleStatus;
@@ -66,10 +67,24 @@ const Keyboard = ({
               <Cell
                 value={key}
                 variant={status(key)}
-                className="mb-1 cursor-pointer"
+                className="mb-1 h-16 w-8 cursor-pointer sm:size-14"
               />
             </div>
           ))}
+          {index === keyboard.length - 1 && (
+            <div onClick={onSubmit}>
+              <div className="mb-1 flex h-16 w-8 cursor-pointer items-center justify-center rounded-sm border bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 sm:size-14">
+                <KeyboardEnter />
+              </div>
+            </div>
+          )}
+          {index === keyboard.length - 1 && (
+            <div onClick={onDelete}>
+              <div className="mb-1 flex h-16 w-8 cursor-pointer items-center justify-center rounded-sm border bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 sm:size-14">
+                <Delete />
+              </div>
+            </div>
+          )}
         </div>
       ))}
     </div>

@@ -118,7 +118,7 @@ const Wordle = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-5">
+      <div className="flex w-full flex-col gap-5 sm:w-[80vh]">
         <header className="grid grid-cols-3 items-center justify-between gap-5">
           <div>
             <Button variant="ghost" size="sm" onClick={() => open()}>
