@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+
+    --success: 120 100% 25.1%;
+    --success-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --warning: 48 96% 89%;
+    --warning-foreground: 38 92% 50%;
+
+    --success: 120 100% 25.1%;
+    --success-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.citation {
+  position: relative;
+  display: inline-block;
+  padding: 4px;
+  border-radius: 0.5rem;
+  color: var(--foreground);
+  font-style: italic;
+  --gap: -16px;
+}
+
+.citation::before {
+  content: "“";
+  font-size: 3rem;
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  line-height: 1;
+  color: hsl(var(--primary));
+}
+
+.citation::after {
+  content: "”";
+  font-size: 3rem;
+  position: absolute;
+  bottom: -16px;
+  right: -4px;
+  line-height: 1;
+  color: hsl(var(--primary));
+}
+
+.citation strong {
+  font-weight: 700;
+  background: hsl(var(--primary) / 0.5);
+  display: inline;
+  padding: 2px;
+  margin: -2px;
+}
+
+.dot-pattern {
+  background-color: var(--dot-background);
+  opacity: 0.8;
+  background-image: radial-gradient(
+    var(--dot-color) 0.5px,
+    var(--dot-background) 0.5px
+  );
+  background-size: var(--size, 10px) var(--size, 10px);
+}
+
+.prose {
+  scroll-margin-top: 40px;
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    position: relative;
+    scroll-margin-top: 70px;
+
+    &:hover {
+      & .icon-link {
+        opacity: 1;
+      }
+    }
+  }
+
+  & .icon.icon-link {
+    width: 20px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -24px;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    &::before {
+      content: "#";
+      font-size: 1.5rem;
+      color: hsl(var(--primary));
+    }
+  }
+}
