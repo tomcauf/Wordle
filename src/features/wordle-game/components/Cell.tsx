@@ -20,7 +20,7 @@ const Cell = ({ variant, transitionDelay, value, className }: CellProps) => {
               ? "bg-yellow-400 text-primary-foreground"
               : variant === "inactive"
                 ? "cursor-not-allowed bg-accent text-primary-foreground"
-                : "bg-primary text-primary-foreground hover:bg-primary/90"
+                : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
       }`}
       style={{
         transition: `background-color 0.3s ease-in-out, color 0.3s ease-in-out`,

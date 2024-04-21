@@ -72,18 +72,18 @@ const Keyboard = ({
             </div>
           ))}
           {index === keyboard.length - 1 && (
-            <div onClick={onSubmit}>
-              <div className="mb-1 flex h-16 w-8 cursor-pointer items-center justify-center rounded-sm border bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 sm:size-14">
-                <KeyboardEnter />
+            <>
+              <div onClick={onSubmit}>
+                <div className="mb-1 flex h-16 w-8 cursor-pointer items-center justify-center rounded-sm border bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/90 sm:size-14">
+                  <KeyboardEnter />
+                </div>
               </div>
-            </div>
-          )}
-          {index === keyboard.length - 1 && (
-            <div onClick={onDelete}>
-              <div className="mb-1 flex h-16 w-8 cursor-pointer items-center justify-center rounded-sm border bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 sm:size-14">
-                <Delete />
+              <div onClick={onDelete}>
+                <div className="mb-1 flex h-16 w-8 cursor-pointer items-center justify-center rounded-sm border bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/90 sm:size-14">
+                  <Delete />
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       ))}

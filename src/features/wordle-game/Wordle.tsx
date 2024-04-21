@@ -65,7 +65,6 @@ const Wordle = () => {
 
     setTimeout(() => {
       if (solution === text.toLocaleLowerCase()) {
-        toast.success("Vous avez deviné le mot !");
         setGameStatus("won");
         openResult();
         return;
@@ -73,7 +72,6 @@ const Wordle = () => {
         currentRowIndex === 5 &&
         solution !== text.toLocaleLowerCase()
       ) {
-        toast.error("Vous avez dépassé le nombre d'essais");
         setGameStatus("lost");
         openResult();
         return;
@@ -141,7 +139,7 @@ const Wordle = () => {
           onDelete={handleDelete}
         />
         {gameStatus !== "playing" && (
-          <Button onClick={handleResetRows} variant={"success"}>
+          <Button onClick={handleResetRows} variant={"secondary"}>
             Rejouer
           </Button>
         )}
