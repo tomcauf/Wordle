@@ -48,7 +48,7 @@ const Wordle = () => {
 
   const handleSubmit = () => {
     if (text.length !== 5) {
-      toast.warning("Please enter a 5-letter word");
+      toast.warning("Veuillez saisir un mot de 5 lettres");
       return;
     }
 
@@ -65,7 +65,7 @@ const Wordle = () => {
 
     setTimeout(() => {
       if (solution === text.toLocaleLowerCase()) {
-        toast.success("You have guessed the word!");
+        toast.success("Vous avez deviné le mot !");
         setGameStatus("won");
         openResult();
         return;
@@ -73,7 +73,7 @@ const Wordle = () => {
         currentRowIndex === 5 &&
         solution !== text.toLocaleLowerCase()
       ) {
-        toast.error("You have run out of guesses!");
+        toast.error("Vous avez dépassé le nombre d'essais");
         setGameStatus("lost");
         openResult();
         return;
@@ -87,6 +87,7 @@ const Wordle = () => {
       }
     }, rows[0].length * 400);
   };
+
   const handleDelete = () => {
     setText((prev) => prev.slice(0, -1));
   };
