@@ -110,7 +110,6 @@ const Wordle = () => {
 
   const loadSolution = () => {
     const word = WORDS[Math.floor(Math.random() * WORDS.length)];
-    console.log(word);
     setSolution(word);
   };
 
