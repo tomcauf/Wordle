@@ -53,14 +53,32 @@ const Wordle = () => {
     }
 
     const currentRow = rows[currentRowIndex];
-    for (let i = 0; i < currentRow.length; i++) {
-      if (!solution.includes(text[i].toLocaleLowerCase()))
-        currentRow[i].status = "absent";
-      else currentRow[i].status = "present";
+    const solutionCounts = solution
+      .split("")
+      .reduce<{ [key: string]: number }>((acc, letter) => {
+        acc[letter] = (acc[letter] || 0) + 1;
+        return acc;
+      }, {});
 
-      if (solution[i] === text[i].toLocaleLowerCase())
+    for (let i = 0; i < currentRow.length; i++) {
+      if (solution[i] === text[i].toLocaleLowerCase()) {
         currentRow[i].status = "correct";
+        solutionCounts[text[i].toLocaleLowerCase()]--;
+      }
     }
+
+    for (let i = 0; i < currentRow.length; i++) {
+      if (currentRow[i].status !== "correct") {
+        const letter = text[i].toLocaleLowerCase();
+        if (solutionCounts[letter] > 0) {
+          currentRow[i].status = "present";
+          solutionCounts[letter]--;
+        } else {
+          currentRow[i].status = "absent";
+        }
+      }
+    }
+
     setRows([...rows]);
 
     setTimeout(() => {
@@ -92,6 +110,7 @@ const Wordle = () => {
 
   const loadSolution = () => {
     const word = WORDS[Math.floor(Math.random() * WORDS.length)];
+    console.log(word);
     setSolution(word);
   };
 
