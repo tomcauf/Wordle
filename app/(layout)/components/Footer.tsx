@@ -1,6 +1,7 @@
 import { GitBranch, Mail, Code } from "lucide-react";
 import Link from "next/link";
 import { SiteConfig } from "@/site-config";
+import { version } from "../../../package.json";
 
 const Footer = () => {
   return (
@@ -27,7 +28,7 @@ const Footer = () => {
       <div></div>
       <div className="flex flex-row justify-end">
         <div className="flex flex-row items-center gap-0.5 bg-transparent text-gray-500 hover:text-gray-700 hover:no-underline">
-          <GitBranch size={16} />v{process.env.NEXT_APP_VERSION}
+          <GitBranch size={16} />v{version}
         </div>
       </div>
     </div>
